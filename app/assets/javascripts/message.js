@@ -134,7 +134,7 @@ $('#new_message').on('submit', function(e){
       }
     })
     .fail(function() {
-      ('error');
+      alert('error');
     });
   };
   if (document.location.href.match(/\/groups\/\d+\/messages/)) {
