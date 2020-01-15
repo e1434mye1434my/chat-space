@@ -1,4 +1,10 @@
 server '18.179.234.166', user: 'ec2-user', roles: %w{app db web}
+set :ssh_options, {
+  keys: %w(~/.ssh/deploytest.pem),
+  user: 'ec2-user',
+  forward_agent: true,
+  auth_methods: %w(publickey)
+}
 
 # server-based syntax
 # ======================
