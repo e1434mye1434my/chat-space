@@ -3,7 +3,7 @@ class Group < ApplicationRecord
   has_many :messages
   has_many :users, through: :group_users
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
 
   def show_last_message
     if (last_message = messages.last).present?
@@ -12,4 +12,13 @@ class Group < ApplicationRecord
       'まだメッセージはありません。'
     end
   end
+
+  def show_last_test
+    if (last_test = messages.last).present?
+      last_test.content? ? last_test.content : '画像が投稿されています'
+    else
+      'まだメッセージはありません。'
+    end
+  end
+
 end
